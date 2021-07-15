@@ -6,13 +6,14 @@ const { dropTableDeliveriesQuery, createDeliveriesTableQuery } = require('./quer
 const pool = new Pool(CONFIG_CREDENTIALS);
 
 async function run() {
-    const start = Date.now();
     const deliveries = await readFile(DELIVERIES_FILE_PATH);
+    const deliveriesLength = deliveries.length;
 
     const client = await pool.connect();
     await client.query('BEGIN');
     await client.query(dropTableDeliveriesQuery);
     await client.query(createDeliveriesTableQuery);
+
     let insertIntoDeliveriesQuery = `INSERT INTO deliveries VALUES`;
     let count = 0;
     for (const delivery of deliveries) {
@@ -38,14 +39,12 @@ async function run() {
             '${delivery.player_dismissed}',
             '${delivery.dismissal_kind}',
             '${delivery.fielder}'),`;
-        if (count % 15000 === 0 || count === 150460) {
+        if (count % 15000 === 0 || count === deliveriesLength) {
             await client.query(insertIntoDeliveriesQuery.slice(0, -1));
             insertIntoDeliveriesQuery = `INSERT INTO deliveries VALUES`;
         }
     }
     await client.query('COMMIT');
     client.release();
-    const stop = Date.now();
-    console.log(`Time Taken to execute = ${(stop - start) / 1000} seconds`);
 }
 run();
