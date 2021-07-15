@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "node-sql": "^1.1.5",
+    "pg": "^8.6.0",
+    "sql": "^0.78.0"
+  },
+  "name": "ipl",
+  "description": "IPL project using sql.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mountblue/mbc-js-16-1-ipl-sql-shriagnish2021.git"
+  },
+  "author": "Shri Agnish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mountblue/mbc-js-16-1-ipl-sql-shriagnish2021/issues"
+  },
+  "homepage": "https://github.com/mountblue/mbc-js-16-1-ipl-sql-shriagnish2021#readme"
+}
